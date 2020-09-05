@@ -1,2 +1,2 @@
-# eq_predictor
- The EarthQuake Predictor App alerts you when there is an earthquake in your near location.
+# EarthQuake Predictor
+The EarthQuake Predictor App alerts you when there is an earthquake in your near location.

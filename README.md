@@ -1,4 +1,5 @@
 # EarthQuake Predictor
 The EarthQuake Predictor App alerts you when there is an earthquake in your near location.
 
-![EQ Predictor](/assets/images/icon.png){:height="50%" width="50%"}
+![EQ Predictor](/assets/images/icon.png)
+<img width="200" alt="EQ Predictor" src="/assets/images/icon.png">

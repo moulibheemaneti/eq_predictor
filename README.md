@@ -1,8 +1,16 @@
-# EarthQuake Predictor
-The EarthQuake Predictor App alerts you when there is an earthquake in your near location.
-<br />
-<img width="200" alt="EQ Predictor" src="/assets/images/icon.png">
-<br />
+# eq_predictor
 
-### Few screenshots from the app
-<img height="300" alt="Splash Screen" src="/screenshots/splash_screen.jpg"> <img height="300" alt="Drawer" src="/screenshots/drawer.jpg"> <img height="300" alt="Welcome" src="/screenshots/welcome.jpg"> <img height="300" alt="Reports Tab" src="/screenshots/reports_tab.jpg"> <img height="300" alt="Logs Tab" src="/screenshots/logs_tab.jpg"> <img height="300" alt="Know EQ" src="/screenshots/know_eq.jpg"> <img height="300" alt="EQ Predictor" src="/screenshots/alert_screen.jpg">
+A new Flutter application.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

@@ -1,8 +1,8 @@
-import 'package:eq_predictor/screens/EPQuiz.dart';
-import 'package:eq_predictor/widgets/mbDrawer.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
+import 'package:eq_predictor/quiz/quiz_menu.dart';
+import 'package:eq_predictor/widgets/mbDrawer.dart';
 import 'package:eq_predictor/screens/knowEQ.dart';
 import 'package:eq_predictor/constants/mbWidgets.dart';
 
@@ -105,7 +105,7 @@ homePageText(BuildContext context){
                   text: "EP Quiz",
                   style: mbHyperLinkTextStyle(),
                   recognizer: TapGestureRecognizer()..onTap = ()async{
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => EPQuiz()));
+                    Navigator.push(context,MaterialPageRoute(builder: (context) => EPQuizMenu()));
                   }
                 ),
                 TextSpan(

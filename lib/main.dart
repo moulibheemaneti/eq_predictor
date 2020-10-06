@@ -1,7 +1,9 @@
 // Author: Mouli Bheemaneti.
 
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:eq_predictor/models/userLocation.dart';
+import 'package:eq_predictor/services/locationService.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:eq_predictor/screens/splashScreen.dart';
 
@@ -12,15 +14,18 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'EQ PREDICTOR',
-      theme: ThemeData(
-        primarySwatch: Colors.brown,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        accentColor: Colors.white,
+    return StreamProvider<UserLocation>(
+      create: (context) => LocationService().locationStream,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'EQ PREDICTOR',
+        theme: ThemeData(
+          primarySwatch: Colors.brown,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          accentColor: Colors.white,
+        ),
+        home: MBSplashScreen(),
       ),
-      home: MBSplashScreen(),
     );
   }
 }

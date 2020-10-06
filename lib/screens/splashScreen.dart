@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'package:eq_predictor/screens/homeScreen.dart';
+import 'package:eq_predictor/screens/dashboard/dashboard.dart';
 import 'package:eq_predictor/constants/mbWidgets.dart';
 
 class MBSplashScreen extends StatefulWidget{
@@ -15,7 +15,7 @@ class _MBSplashScreenState extends State<MBSplashScreen>{
     double screenWidth = MediaQuery.of(context).size.width;
     return new SplashScreen(
       seconds: 4,
-      navigateAfterSeconds: HomeScreen(),
+      navigateAfterSeconds: DashBoard(),
       image: Image.asset("assets/images/icon.png"),
       photoSize: screenWidth/3,
       backgroundColor: Colors.white,

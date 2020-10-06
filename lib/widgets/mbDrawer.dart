@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
+import 'package:eq_predictor/quiz/quiz_menu.dart';
 import 'package:eq_predictor/constants/mbWidgets.dart';
-import 'package:eq_predictor/screens/EPQuiz.dart';
 import 'package:eq_predictor/screens/contactUs.dart';
 import 'package:eq_predictor/screens/dashboard/dashboard.dart';
 import 'package:eq_predictor/screens/homeScreen.dart';
@@ -37,7 +37,7 @@ class _MBDrawerState extends State<MBDrawer> {
               onTap: (){
                 Navigator.pop(context);
 
-                Navigator.push(context,MaterialPageRoute(builder: (context) => HomeScreen()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => HomeScreen()));
               },
             ),
             Divider(
@@ -56,7 +56,7 @@ class _MBDrawerState extends State<MBDrawer> {
               onTap: (){
                 Navigator.pop(context);
 
-                Navigator.push(context,MaterialPageRoute(builder: (context) => DashBoard()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => DashBoard()));
               },
             ),
             Divider(
@@ -73,7 +73,7 @@ class _MBDrawerState extends State<MBDrawer> {
               onTap: (){
                 Navigator.pop(context);
 
-                Navigator.push(context,MaterialPageRoute(builder: (context) => KnowEQ()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => KnowEQ()));
               },
             ),
             Divider(
@@ -90,7 +90,7 @@ class _MBDrawerState extends State<MBDrawer> {
               onTap: (){
                 Navigator.pop(context);
 
-                Navigator.push(context,MaterialPageRoute(builder: (context) => EPQuiz()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => EPQuizMenu()));
               },
             ),
             Divider(
@@ -109,7 +109,7 @@ class _MBDrawerState extends State<MBDrawer> {
               onTap: (){
                 Navigator.pop(context);
 
-                Navigator.push(context,MaterialPageRoute(builder: (context) => ContactEP()));
+                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => ContactEP()));
               },
             ),
             Divider(

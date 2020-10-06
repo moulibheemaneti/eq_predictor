@@ -1,13 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
-
-import 'package:eq_predictor/screens/homeScreen.dart';
-import 'package:eq_predictor/screens/dashboard/dashboard.dart';
-import 'package:eq_predictor/screens/EPQuiz.dart';
-import 'package:eq_predictor/screens/contactUs.dart';
-import 'package:eq_predictor/screens/knowEQ.dart';
-
-
 
 Widget mbAppBar(String title){
   return PreferredSize(
@@ -40,6 +31,28 @@ TextStyle mbSplashTextStyle(){
       fontWeight: FontWeight.bold,
       color: Colors.brown[500],
       fontSize: 26.0
+  );
+}
+
+TextStyle mbAlertHeadStyle(){
+  return TextStyle(
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+    fontSize: 60.0,
+  );
+}
+
+TextStyle mbAlertTextStyle(){
+  return TextStyle(
+    color: Colors.white,
+    fontSize: 25.0,
+  );
+}
+
+TextStyle mbWhiteTextStyle(){
+  return TextStyle(
+    color: Colors.white,
+    fontSize: 20.0,
   );
 }
 
@@ -108,12 +121,28 @@ TextStyle mbDrawerTextStyle(){
   );
 }
 
+TextStyle mbQuestionStyle(){
+  return TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 24,
+    color: Colors.brown,
+  );
+}
+
+TextStyle mbAppBarTextStyle(){
+  return TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 30,
+    color: Colors.brown,
+  );
+}
+
 ButtonTheme mbButtonTheme(String text, void function()){
   return ButtonTheme(
     splashColor: Colors.brown[300],
     padding: EdgeInsets.fromLTRB(35.0, 12.0, 35.0, 12.0),
     minWidth: 120,
-    buttonColor: Colors.brown[700],
+    buttonColor: Colors.brown[400],
     child: new RaisedButton(
       elevation: 5.0,
       textColor: Colors.white,
@@ -128,7 +157,35 @@ ButtonTheme mbButtonTheme(String text, void function()){
           letterSpacing: 1.0,
         ),
       ),
-      color: Colors.brown[700],
+      color: Colors.brown,
     ),
+  );
+}
+
+mbBottomModal(BuildContext context, int score, String img){
+  return showModalBottomSheet(
+    context: context,
+    enableDrag: true,
+    builder: (context){
+      return Padding(
+        padding: EdgeInsets.all(40),
+        child: ListView(
+          children: [
+            Image.asset("assets/images/"+img,height: 200, width: 200,),
+            SizedBox(height: 40,),
+            Text(
+              "Quiz Completed...",
+              textAlign:TextAlign.center,
+              style: mbHeadingTextStyle(),
+            ),
+            Text(
+              "Your score is : $score",
+              textAlign: TextAlign.center,
+              style: mbAppBarTextStyle(),
+            ),
+          ],
+        ),
+      );
+    },
   );
 }

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:eq_predictor/constants/mbWidgets.dart';
 import 'package:eq_predictor/widgets/circularGraph.dart';
+import 'package:eq_predictor/models/userLocation.dart';
 
-reportsTab(){
+reportsTab(BuildContext context){
+
+  var userLocation = Provider.of<UserLocation>(context);
+
   return Padding(
     padding: EdgeInsets.only(top: 20,left: 20.0, right: 20.0,bottom: 20.0),
     child: ListView(
@@ -94,6 +99,11 @@ reportsTab(){
             ),
           ],
         ),
+
+        /*
+        (userLocation != null) ? Text("Lat: ${userLocation.latitude}, Long: ${userLocation.longitude}")
+            : Text("You didn't give permission to access your location")
+        */
       ],
     ),
   );

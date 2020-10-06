@@ -1,8 +1,7 @@
-import 'package:eq_predictor/widgets/mbDrawer.dart';
 import 'package:flutter/material.dart';
 
-import 'package:eq_predictor/screens/notificationScreen.dart';
-import 'package:eq_predictor/constants/mbWidgets.dart';
+import 'package:eq_predictor/widgets/mbDrawer.dart';
+import 'package:eq_predictor/screens/alertScreen.dart';
 import 'package:eq_predictor/screens/dashboard/reportsTab.dart';
 import 'package:eq_predictor/screens/dashboard/logsTab.dart';
 
@@ -19,7 +18,7 @@ class DashBoard extends StatelessWidget{
         drawer: MBDrawer(),
         body: TabBarView(
           children: <Widget>[
-            reportsTab(),
+            reportsTab(context),
             logTab(context),
           ],
         ),
@@ -69,7 +68,8 @@ _dashboardAppBar(BuildContext context,String title){
               child: Icon(Icons.notifications_none, color: Colors.brown, size: 30.0,),
             ),
             onTap: ()=>{
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> NotificationScreen()))
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=> NotificationScreen()))
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> AlertScreen()))
             },
           ),
         ],

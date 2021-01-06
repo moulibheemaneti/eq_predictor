@@ -1,15 +1,18 @@
+import 'package:eq_predictor/constants/questions_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:eq_predictor/constants/mbWidgets.dart';
-import 'package:eq_predictor/constants/questions_list.dart';
 import 'package:eq_predictor/quiz/quiz_menu.dart';
 
-class MCQQuiz extends StatefulWidget{
+
+
+class MCQQuiz extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _MCQQuizState();
 }
 
-class _MCQQuizState extends State<MCQQuiz>{
+class _MCQQuizState extends State<MCQQuiz> {
+  var mcqQuestionsList = mcqList;
 
   var counter = 0;
   int score = 0;
@@ -25,16 +28,21 @@ class _MCQQuizState extends State<MCQQuiz>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: mbInvertedAppBar(context,"MCQ Quiz"),
+      appBar: mbInvertedAppBar(context, "MCQ Quiz"),
       body: ListView(
         children: <Widget>[
           Hero(
             tag: "quiz_mcq",
-            child: Image.asset("assets/images/quiz_mcq.png",height: 300,width: 300,fit: BoxFit.fill,),
+            child: Image.asset(
+              "assets/images/quiz_mcq.png",
+              height: 300,
+              width: 300,
+              fit: BoxFit.fill,
+            ),
           ),
-
-          SizedBox(height: 10,),
-
+          SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: EdgeInsets.all(10),
             child: Card(
@@ -53,7 +61,6 @@ class _MCQQuizState extends State<MCQQuiz>{
               ),
             ),
           ),
-
           Padding(
             padding: EdgeInsets.all(5),
             child: Card(
@@ -72,11 +79,11 @@ class _MCQQuizState extends State<MCQQuiz>{
               ),
             ),
           ),
-
-          SizedBox(height: 20,),
-
+          SizedBox(
+            height: 20,
+          ),
           Builder(
-            builder: (BuildContext ctx){
+            builder: (BuildContext ctx) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -89,16 +96,18 @@ class _MCQQuizState extends State<MCQQuiz>{
                     child: new RaisedButton(
                       elevation: 5.0,
                       textColor: Colors.white,
-                      child: new Text("Option A",
+                      child: new Text(
+                        "${mcqQuestionsList[counter].optionA}",
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 16.0,
                           letterSpacing: 1.0,
                         ),
                       ),
-                      onPressed: (){
-                        if(counter != (mcqQuestionsList.length - 1)){
+                      onPressed: () {
+                        if (counter != (mcqQuestionsList.length - 1)) {
                           setState(() {
-                            if(mcqQuestionsList[counter].correctOption == "Option A"){
+                            if (mcqQuestionsList[counter].optionA ==
+                                mcqQuestionsList[counter].answerText) {
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -113,8 +122,7 @@ class _MCQQuizState extends State<MCQQuiz>{
                                 backgroundColor: Colors.green[300],
                               );
                               Scaffold.of(ctx).showSnackBar(snackBar);
-                            }
-                            else{
+                            } else {
                               score += 0;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -132,14 +140,17 @@ class _MCQQuizState extends State<MCQQuiz>{
                             }
                             counter += 1;
                           });
-                        }
-                        else{
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EPQuizMenu()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EPQuizMenu()));
                           mbBottomModal(context, score, "quiz_mcq.png");
                         }
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                       color: Colors.brown,
                     ),
                   ),
@@ -153,16 +164,18 @@ class _MCQQuizState extends State<MCQQuiz>{
                     child: new RaisedButton(
                       elevation: 5.0,
                       textColor: Colors.white,
-                      child: new Text("Option B",
+                      child: new Text(
+                        "${mcqQuestionsList[counter].optionB}",
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 16.0,
                           letterSpacing: 1.0,
                         ),
                       ),
-                      onPressed: (){
-                        if(counter != (mcqQuestionsList.length - 1)){
+                      onPressed: () {
+                        if (counter != (mcqQuestionsList.length - 1)) {
                           setState(() {
-                            if(mcqQuestionsList[counter].correctOption == "Option B"){
+                            if (mcqQuestionsList[counter].optionB ==
+                                mcqQuestionsList[counter].answerText) {
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -177,8 +190,7 @@ class _MCQQuizState extends State<MCQQuiz>{
                                 backgroundColor: Colors.green[300],
                               );
                               Scaffold.of(ctx).showSnackBar(snackBar);
-                            }
-                            else{
+                            } else {
                               score += 0;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -196,14 +208,17 @@ class _MCQQuizState extends State<MCQQuiz>{
                             }
                             counter += 1;
                           });
-                        }
-                        else{
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EPQuizMenu()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EPQuizMenu()));
                           mbBottomModal(context, score, "quiz_mcq.png");
                         }
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                       color: Colors.brown,
                     ),
                   ),
@@ -211,9 +226,11 @@ class _MCQQuizState extends State<MCQQuiz>{
               );
             },
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Builder(
-            builder: (BuildContext ctx){
+            builder: (BuildContext ctx) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -226,16 +243,18 @@ class _MCQQuizState extends State<MCQQuiz>{
                     child: new RaisedButton(
                       elevation: 5.0,
                       textColor: Colors.white,
-                      child: new Text("Option C",
+                      child: new Text(
+                        "${mcqQuestionsList[counter].optionC}",
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 16.0,
                           letterSpacing: 1.0,
                         ),
                       ),
-                      onPressed: (){
-                        if(counter != (mcqQuestionsList.length - 1)){
+                      onPressed: () {
+                        if (counter != (mcqQuestionsList.length - 1)) {
                           setState(() {
-                            if(mcqQuestionsList[counter].correctOption == "Option C"){
+                            if (mcqQuestionsList[counter].optionC ==
+                                mcqQuestionsList[counter].answerText) {
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -250,8 +269,7 @@ class _MCQQuizState extends State<MCQQuiz>{
                                 backgroundColor: Colors.green[300],
                               );
                               Scaffold.of(ctx).showSnackBar(snackBar);
-                            }
-                            else{
+                            } else {
                               score += 0;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -269,14 +287,17 @@ class _MCQQuizState extends State<MCQQuiz>{
                             }
                             counter += 1;
                           });
-                        }
-                        else{
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EPQuizMenu()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EPQuizMenu()));
                           mbBottomModal(context, score, "quiz_mcq.png");
                         }
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                       color: Colors.brown,
                     ),
                   ),
@@ -290,16 +311,18 @@ class _MCQQuizState extends State<MCQQuiz>{
                     child: new RaisedButton(
                       elevation: 5.0,
                       textColor: Colors.white,
-                      child: new Text("Option D",
+                      child: new Text(
+                        "${mcqQuestionsList[counter].optionD}",
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 16.0,
                           letterSpacing: 1.0,
                         ),
                       ),
-                      onPressed: (){
-                        if(counter != (mcqQuestionsList.length - 1)){
+                      onPressed: () {
+                        if (counter != (mcqQuestionsList.length - 1)) {
                           setState(() {
-                            if(mcqQuestionsList[counter].correctOption == "Option D"){
+                            if (mcqQuestionsList[counter].optionD ==
+                                mcqQuestionsList[counter].answerText) {
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -314,8 +337,7 @@ class _MCQQuizState extends State<MCQQuiz>{
                                 backgroundColor: Colors.green[300],
                               );
                               Scaffold.of(ctx).showSnackBar(snackBar);
-                            }
-                            else{
+                            } else {
                               score += 0;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -333,18 +355,20 @@ class _MCQQuizState extends State<MCQQuiz>{
                             }
                             counter += 1;
                           });
-                        }
-                        else{
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => EPQuizMenu()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EPQuizMenu()));
                           mbBottomModal(context, score, "quiz_mcq.png");
                         }
                       },
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
-
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
                       color: Colors.brown,
                     ),
                   ),
-
                 ],
               );
             },
@@ -354,15 +378,20 @@ class _MCQQuizState extends State<MCQQuiz>{
     );
   }
 
-  Widget mbInvertedAppBar(BuildContext context, String title){
+  Widget mbInvertedAppBar(BuildContext context, String title) {
     return PreferredSize(
       child: Padding(
         padding: EdgeInsets.only(top: 0.0),
         child: AppBar(
           leading: InkWell(
-            child: Icon(Icons.close, size: 40, color: Colors.white,),
+            child: Icon(
+              Icons.close,
+              size: 40,
+              color: Colors.white,
+            ),
             onTap: () => {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => EPQuizMenu()))
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => EPQuizMenu()))
             },
           ),
           elevation: 0,

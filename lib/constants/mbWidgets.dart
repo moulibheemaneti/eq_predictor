@@ -111,7 +111,6 @@ TextStyle mbTextStyle(){
     color: Colors.black,
     fontSize: 17.0,
     height: 1.5,
-
   );
 }
 
@@ -161,6 +160,45 @@ ButtonTheme mbButtonTheme(String text, void function()){
     ),
   );
 }
+
+class MBButton extends StatefulWidget{
+  final String text;
+  final Function function;
+
+  MBButton({Key key, @required this.text, @required this.function}):super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => new _MBButtonState();
+}
+
+class _MBButtonState extends State<MBButton>{
+  @override
+  Widget build(BuildContext context) {
+    return ButtonTheme(
+      splashColor: Colors.brown[300],
+      padding: EdgeInsets.fromLTRB(35.0, 12.0, 35.0, 12.0),
+      minWidth: 120,
+      buttonColor: Colors.brown[400],
+      child: new RaisedButton(
+        elevation: 5.0,
+        textColor: Colors.white,
+        onPressed: (){
+          // this function is called when the button is clicked
+          widget.function();
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),
+        child: new Text(widget.text,
+          style: TextStyle(
+            fontSize: 20.0,
+            letterSpacing: 1.0,
+          ),
+        ),
+        color: Colors.brown,
+      ),
+    );
+  }
+}
+
 
 mbBottomModal(BuildContext context, int score, String img){
   return showModalBottomSheet(

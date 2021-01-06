@@ -9,7 +9,7 @@ class LocationService{
 
   Location location = Location();
 
-  // continously emit location updates
+  // continuously emit location updates
   StreamController<UserLocation> _locationController = StreamController<UserLocation>.broadcast();
 
   LocationService(){
@@ -25,6 +25,7 @@ class LocationService{
         });
       }
       else if(granted == PermissionStatus.DENIED){
+        print("denied");
       }
     });
   }

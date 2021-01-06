@@ -1,30 +1,31 @@
+import 'package:eq_predictor/screens/homeScreen.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:splashscreen/splashscreen.dart';
 
 import 'package:eq_predictor/screens/dashboard/dashboard.dart';
-import 'package:eq_predictor/constants/mbWidgets.dart';
 
-class MBSplashScreen extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => _MBSplashScreenState();
-}
-
-class _MBSplashScreenState extends State<MBSplashScreen>{
+class MBSplashScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    return new SplashScreen(
-      seconds: 4,
-      navigateAfterSeconds: DashBoard(),
-      image: Image.asset("assets/images/icon.png"),
-      photoSize: screenWidth/3,
-      backgroundColor: Colors.white,
-      title: Text(
-        "EARTHQUAKE\nPREDICTOR",
-        textAlign: TextAlign.center,
-        style: mbSplashTextStyle(),
+    var _screenWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: Center(
+        child: Container(
+          color: Colors.brown,
+          width: _screenWidth,
+            child: FlareActor(
+              'assets/flare/eq_splash.flr',
+              alignment: Alignment.center,
+              sizeFromArtboard: true,
+              artboard: 'Artboard',
+              fit: BoxFit.contain,
+              animation: 'EQ',
+              callback: (value) => {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()))
+              },
+            ),
+        ),
       ),
-      loaderColor: Colors.brown[400],
     );
   }
 }

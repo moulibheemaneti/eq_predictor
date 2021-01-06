@@ -4,12 +4,16 @@ import 'package:eq_predictor/constants/mbWidgets.dart';
 import 'package:eq_predictor/constants/questions_list.dart';
 import 'package:eq_predictor/quiz/quiz_menu.dart';
 
+
+
 class TrueFalseQuiz extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => new _TrueFalseQuizState();
 }
 
 class _TrueFalseQuizState extends State<TrueFalseQuiz>{
+
+  var tfQuestionsList = tfList;
 
   var counter = 0;
   int score = 0;
@@ -91,7 +95,7 @@ class _TrueFalseQuizState extends State<TrueFalseQuiz>{
                       onPressed: (){
                         if(counter != (tfQuestionsList.length - 1)){
                           setState(() {
-                            if(tfQuestionsList[counter].isCorrect == true){
+                            if(tfQuestionsList[counter].answerText == tfQuestionsList[counter].optionTrue){
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),
@@ -152,7 +156,7 @@ class _TrueFalseQuizState extends State<TrueFalseQuiz>{
                       onPressed: (){
                         if(counter != (tfQuestionsList.length - 1)){
                           setState(() {
-                            if(tfQuestionsList[counter].isCorrect == false){
+                            if(tfQuestionsList[counter].answerText == tfQuestionsList[counter].optionFalse){
                               score += 1;
                               final snackBar = SnackBar(
                                 duration: Duration(milliseconds: 500),

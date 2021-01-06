@@ -49,7 +49,7 @@ class CircleGraph extends CustomPainter{
 
 getProgressText(String string,double percentageCompleted){
   return Text(
-    percentageCompleted.toString(),
+    '''${percentageCompleted.toStringAsFixed(2)}%''',
     textAlign: TextAlign.center,
     style: mbBrownBold(),
   );
@@ -64,7 +64,7 @@ progressView(String string, double percentageCompleted){
       defaultCircleColor: Colors.grey[400],
       percentageCompletedColor: Colors.brown[700],
       percentageCompleted: percentageCompleted,
-      circleWidth: 20
+      circleWidth: 10
     ),
   );
 }
